@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/method/categoryMethod.dart';
+import 'package:myapp/widget/categoryList1.dart';
+import 'package:myapp/widget/categoryList2.dart';
 import 'package:myapp/widget/vegetableList.dart';
 
 void main() {
@@ -49,12 +50,10 @@ class Myapp extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      bottom: 0,
+                      bottom: 15,
                       right: 0,
                       child: Image.asset(
                         'assets/tree.png',
-                        height: deviceHeight * 0.40,
-                        width: deviceWidth * 0.40,
                       ),
                     ),
                     Positioned(
@@ -105,9 +104,54 @@ class Myapp extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Category(deviceHeight, deviceWidth),
-              SizedBox(height: 10),
-              Category(deviceHeight, deviceWidth),
+              Row(
+                children: [
+                  Container(
+                    height: deviceHeight * 0.05,
+                    margin: EdgeInsets.only(right: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xffe2cbff),
+                    ),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.asset(
+                            'assets/correct.png',
+                            height: 25,
+                            width: 25,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 8),
+                          child: Text(
+                            'Cabbage and Lettuce (14)',
+                            style: TextStyle(
+                                color: Color(0xff6c0ee4), fontSize: 14),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: CategoryList1(
+                      deviceHeight: deviceHeight,
+                      deviceWidth: deviceWidth,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              CategoryList2(
+                deviceHeight: deviceHeight,
+                deviceWidth: deviceWidth,
+              ),
+              SizedBox(
+                height: 10,
+              ),
               SizedBox(height: 20),
               VegetableList(
                   deviceHeight: deviceHeight, deviceWidth: deviceWidth),

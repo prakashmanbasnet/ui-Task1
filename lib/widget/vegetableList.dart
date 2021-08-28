@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/constant/constant.dart';
 
 class VegetableList extends StatelessWidget {
   const VegetableList({
@@ -16,7 +17,7 @@ class VegetableList extends StatelessWidget {
       height: deviceHeight * 0.47,
       width: deviceWidth,
       child: ListView.builder(
-          itemCount: 4,
+          itemCount: vegetableList.length,
           itemBuilder: (context, index) {
             return Container(
               margin: EdgeInsets.only(bottom: 15),
@@ -27,7 +28,7 @@ class VegetableList extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Image.asset(
-                      'assets/BostonLettuce.png',
+                      vegetableList[index]['image'],
                     ),
                   ),
                   SizedBox(
@@ -39,7 +40,7 @@ class VegetableList extends StatelessWidget {
                       Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Boston Lettuce',
+                            vegetableList[index]['name'],
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.w500),
                           )),
@@ -51,13 +52,13 @@ class VegetableList extends StatelessWidget {
                         child: RichText(
                           text: TextSpan(children: [
                             TextSpan(
-                              text: '1.16',
+                              text: vegetableList[index]['price'],
                               style: TextStyle(
                                   color: Color(0xff2d0c57),
-                                  fontWeight: FontWeight.bold),
+                                  fontWeight: FontWeight.w700),
                             ),
                             TextSpan(
-                                text: ' \$/piece',
+                                text: vegetableList[index]['currency'],
                                 style: TextStyle(color: Color(0xff9586a8)))
                           ]),
                         ),
