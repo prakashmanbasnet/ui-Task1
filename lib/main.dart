@@ -41,7 +41,7 @@ class Myapp extends StatelessWidget {
                       top: deviceHeight * 0.06,
                       left: 0,
                       child: Text(
-                        'Vegetables',
+                        'Vegetable',
                         style: TextStyle(
                             fontSize: 30,
                             color: Color(0xff2d0c57),
